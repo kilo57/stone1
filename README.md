@@ -30,13 +30,31 @@
 > “你好！我是石小石，有什么可以帮助你的吗？”
 
 ## 项目结构说明
-/miniprogram # 小程序代码
-├── pages # 页面目录
-├── utils # 工具函数
-├── assets # 素材图标
-├── env # 环境变量配置
-README.md # 项目说明文件
-
+miniprogram/
+├── app.json             # 应用配置
+├── app.ts               # 应用入口文件
+├── app.wxss             # 全局样式
+├── images/              # 图片资源目录
+│   ├── icons/           # 图标
+│   │   ├── chat-icon.png
+│   │   ├── accounting-icon.png
+│   │   └── reminder-icon.png
+│   ├── stone-welcome.png    # 欢迎页面的石小石图片
+│   ├── stone-main.png       # 主页面的石小石图片
+│   └── stone-avatar.png     # 聊天界面的石小石头像
+├── pages/               # 页面目录
+│   ├── index/           # 欢迎页面
+│   │   ├── index.wxml
+│   │   ├── index.wxss
+│   │   ├── index.ts
+│   │   └── index.json
+│   └── main/            # 主页面
+│       ├── main.wxml
+│       ├── main.wxss
+│       ├── main.ts
+│       └── main.json
+└── typings/             # 类型定义
+```
 ## 运行方法
 1. 克隆本项目至本地
 2. 使用微信开发者工具打开 `/miniprogram` 文件夹
