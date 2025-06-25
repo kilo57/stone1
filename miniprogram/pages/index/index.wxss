@@ -1,0 +1,42 @@
+/**index.wxss**/
+.bg-yellow {
+  background-color: #FFEB3B;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.text-orange {
+  color: #FFA726;
+}
+
+.start-button {
+  background-color: white;
+  border-radius: 9999rpx;
+  padding: 32rpx 96rpx;
+  box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 4rpx solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-button:active {
+  transform: scale(0.95);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease;
+} 

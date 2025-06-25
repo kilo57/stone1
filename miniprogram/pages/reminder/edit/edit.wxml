@@ -1,0 +1,64 @@
+<!--pages/reminder/edit/edit.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="back-button" bindtap="handleBackClick">
+      <view class="arrow-left"></view>
+    </view>
+    <view class="title">{{isEdit ? '编辑提醒' : '新增提醒'}}</view>
+    <view class="placeholder"></view>
+  </view>
+  
+  <view class="content">
+    <view class="form-card">
+      <!-- 提醒类型 -->
+      <view class="form-item">
+        <view class="form-label">类型</view>
+        <view class="type-selector">
+          <view class="type-icon {{reminderType}}-icon">
+            <image class="option-image" src="/images/icons/{{reminderType}}.svg" mode="aspectFit"></image>
+          </view>
+          <text>{{reminderTypeText}}</text>
+        </view>
+      </view>
+      
+      <!-- 提醒标题 -->
+      <view class="form-item">
+        <view class="form-label">标题</view>
+        <input class="form-input" placeholder="请输入提醒标题" value="{{title}}" bindinput="handleTitleInput" maxlength="20" />
+      </view>
+      
+      <!-- 提醒日期 -->
+      <view class="form-item">
+        <view class="form-label">日期</view>
+        <picker mode="selector" range="{{dateOptions}}" value="{{dateIndex}}" bindchange="handleDateChange">
+          <view class="picker-view">
+            <text>{{dateOptions[dateIndex]}}</text>
+            <view class="arrow-right"></view>
+          </view>
+        </picker>
+      </view>
+      
+      <!-- 提醒时间 -->
+      <view class="form-item">
+        <view class="form-label">时间</view>
+        <picker mode="time" value="{{time}}" bindchange="handleTimeChange">
+          <view class="picker-view">
+            <text>{{time}}</text>
+            <view class="arrow-right"></view>
+          </view>
+        </picker>
+      </view>
+      
+      <!-- 提醒备注 -->
+      <view class="form-item">
+        <view class="form-label">备注</view>
+        <textarea class="form-textarea" placeholder="请输入备注信息（选填）" value="{{remark}}" bindinput="handleRemarkInput" maxlength="100"></textarea>
+      </view>
+      
+      <!-- 底部保存按钮 -->
+      <view class="form-save-button bottom-save-button" bindtap="handleSaveClick">
+        <text>保存提醒</text>
+      </view>
+    </view>
+  </view>
+</view> 

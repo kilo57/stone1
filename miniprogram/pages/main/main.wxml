@@ -1,0 +1,46 @@
+<!-- main.wxml -->
+<view class="flex flex-col min-h-screen bg-yellow p-6">
+  <!-- 顶部返回按钮 -->
+  <view class="flex items-center justify-between mb-4 top-nav">
+    <view class="back-button" bindtap="handleBackClick">
+      <view class="arrow-left"></view>
+    </view>
+    <view style="width: 20rpx;"></view> <!-- 占位符保持布局平衡 -->
+  </view>
+
+  <!-- 石小石图标 - 向下移动并居中 -->
+  <view class="flex justify-center avatar-container">
+    <image src="/images/0.1.png" mode="aspectFit" class="avatar-image"></image>
+  </view>
+
+  <!-- Hello 文字 -->
+  <view class="text-center mb-8 hello-text">
+    <view class="text-2xl font-bold text-black mb-2">Hello !</view>
+    <view class="text-lg text-gray-700">You are doing great !</view>
+  </view>
+
+  <!-- 三个主要功能按钮 -->
+  <view class="flex-1 flex flex-col justify-center menu-buttons mt-4">
+    <block wx:for="{{menuItems}}" wx:key="id">
+      <view 
+        class="menu-button {{item.bgColor}} {{hoveredItem === item.id ? item.hoverColor : ''}}"
+        data-id="{{item.id}}"
+        bindtap="handleItemClick"
+        bindtouchstart="handleTouchStart"
+        bindtouchend="handleTouchEnd"
+        animation="{{animations[index]}}"
+      >
+        <view class="menu-content">
+          <view class="menu-text">
+            <view class="text-xl font-bold text-black mb-1">{{item.label}}</view>
+            <view class="text-sm text-gray-700">{{item.subtitle}}</view>
+            <view wx:if="{{index === 0}}" class="menu-line"></view>
+          </view>
+          <view class="icon-container">
+            <image class="menu-icon" src="{{item.icon || '/images/placeholder.svg'}}" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view> 

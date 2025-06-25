@@ -1,0 +1,153 @@
+/* main.wxss */
+.bg-yellow {
+  background-color: #FFEB3B;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* 顶部导航栏 */
+.top-nav {
+  padding-top: 30rpx;
+  position: relative;
+  z-index: 10;
+}
+
+/* 返回按钮样式 */
+.back-button {
+  padding: 16rpx;
+  border-radius: 9999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 30rpx;
+}
+
+.back-button:active {
+  background-color: #E6D430;
+}
+
+.arrow-left {
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid black;
+  border-left: 4rpx solid black;
+  transform: rotate(-45deg);
+}
+
+/* 石小石头像容器 */
+.avatar-container {
+  width: 100%;
+  margin-bottom: 40rpx;
+  margin-top: 20rpx;
+}
+
+.avatar-image {
+  width: 500rpx;
+  height: 500rpx;
+}
+
+/* Hello 文字样式 */
+.hello-text {
+  margin-top: -180rpx;
+}
+
+/* 菜单按钮样式 */
+.menu-buttons {
+  gap: 48rpx;
+  width: 100%;
+  margin-top: -100rpx;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 48rpx;
+  border-radius: 48rpx;
+  box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 8rpx solid black;
+  transition: all 0.2s;
+  transform: translateY(0);
+  opacity: 1;
+  animation: slideUp 0.3s ease;
+  box-sizing: border-box;
+}
+
+.menu-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-text {
+  text-align: left;
+  flex: 1;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 按钮颜色 - 确保与原始项目完全一致 */
+.menu-button.bg-purple-400 {
+  background-color: #CE93D8;
+}
+
+.menu-button.bg-green-400 {
+  background-color: #81C784;
+}
+
+.menu-button.bg-pink-400 {
+  background-color: #F48FB1;
+}
+
+.menu-button.bg-purple-500 {
+  background-color: #AB47BC;
+}
+
+.menu-button.bg-green-500 {
+  background-color: #66BB6A;
+}
+
+.menu-button.bg-pink-500 {
+  background-color: #EC407A;
+}
+
+.menu-button:active {
+  transform: scale(0.95);
+}
+
+.menu-line {
+  margin-top: 16rpx;
+  width: 96rpx;
+  height: 8rpx;
+  background-color: black;
+  border-radius: 4rpx;
+}
+
+.icon-container {
+  width: 130rpx;
+  height: 130rpx;
+  min-width: 130rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 6rpx rgba(0, 0, 0, 0.1);
+  margin-left: 20rpx;
+}
+
+.menu-icon {
+  width: 90rpx;
+  height: 90rpx;
+} 

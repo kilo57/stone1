@@ -1,0 +1,196 @@
+/**app.wxss**/
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+}
+
+/* 动画相关样式 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease;
+}
+
+/* 自定义字体 */
+.font-cartoon {
+  font-weight: bold;
+}
+
+/* 响应式布局基础类 */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 边距和间距 */
+.mb-2 {
+  margin-bottom: 16rpx;
+}
+
+.mb-4 {
+  margin-bottom: 32rpx;
+}
+
+.mb-8 {
+  margin-bottom: 64rpx;
+}
+
+.mb-16 {
+  margin-bottom: 128rpx;
+}
+
+.p-2 {
+  padding: 16rpx;
+}
+
+.p-4 {
+  padding: 32rpx;
+}
+
+.p-6 {
+  padding: 48rpx;
+}
+
+.py-3 {
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+
+.px-4 {
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+
+.px-12 {
+  padding-left: 96rpx;
+  padding-right: 96rpx;
+}
+
+.py-4 {
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+
+.ml-2 {
+  margin-left: 16rpx;
+}
+
+.ml-4 {
+  margin-left: 32rpx;
+}
+
+.mr-2 {
+  margin-right: 16rpx;
+}
+
+/* 颜色 */
+.text-black {
+  color: #000;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-gray-700 {
+  color: #4a4a4a;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.border-black {
+  border: 4rpx solid #000;
+}
+
+/* 文本样式 */
+.text-sm {
+  font-size: 28rpx;
+}
+
+.text-lg {
+  font-size: 36rpx;
+}
+
+.text-xl {
+  font-size: 40rpx;
+}
+
+.text-2xl {
+  font-size: 48rpx;
+}
+
+.text-4xl {
+  font-size: 64rpx;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+/* 圆角 */
+.rounded-full {
+  border-radius: 9999rpx;
+}
+
+.rounded-2xl {
+  border-radius: 32rpx;
+}
+
+.rounded-3xl {
+  border-radius: 48rpx;
+}
+
+/* 阴影 */
+.shadow-md {
+  box-shadow: 0 4rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, 0.1);
+} 

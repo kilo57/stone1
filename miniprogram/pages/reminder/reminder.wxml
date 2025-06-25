@@ -1,0 +1,100 @@
+<!--pages/reminder/reminder.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="back-button" bindtap="handleBackClick">
+      <view class="arrow-left"></view>
+    </view>
+    <view class="title">提醒</view>
+    <view class="add-button" bindtap="handleAddReminder">
+      <view class="plus-icon">+</view>
+    </view>
+  </view>
+  
+  <view class="content">
+    <!-- 提醒列表卡片 -->
+    <view class="reminder-card">
+      <block wx:for="{{reminders}}" wx:key="id">
+        <view class="reminder-item {{item.completed ? 'completed' : ''}}" bindlongpress="showDeleteConfirm" data-id="{{item.id}}" bindtap="handleReminderClick" data-id="{{item.id}}">
+          <view class="checkbox-container" catchtap="toggleReminder" data-id="{{item.id}}">
+            <checkbox checked="{{item.completed}}" color="#f0b90b" />
+          </view>
+          <view class="reminder-details">
+            <view class="reminder-title">{{item.title}}</view>
+            <view class="reminder-time">
+              <view class="date-info">
+                <image class="icon-image" src="/images/icons/calendar.svg" mode="aspectFit"></image>
+                <text>{{item.date}}</text>
+              </view>
+              <view class="time-info">
+                <image class="icon-image" src="/images/icons/clock.svg" mode="aspectFit"></image>
+                <text>{{item.time}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="reminder-type-icon {{item.type}}-icon">
+            <image class="option-image" src="/images/icons/{{item.type || 'work'}}.svg" mode="aspectFit"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 小石头提示框 -->
+    <view class="pet-message-container">
+      <view class="pet-message">
+        <view class="pet-avatar">
+          <image src="/images/0.1.png" mode="aspectFill"></image>
+        </view>
+        <view class="message-box">
+          <view class="message-title">石小石提醒你：</view>
+          <view class="message-content">别忘了今天的任务哦！</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 添加按钮 -->
+    <view class="add-reminder-btn" bindtap="showAddOptions">
+      <text class="add-icon">+</text>
+    </view>
+  </view>
+  
+  <!-- 添加选项弹出层 -->
+  <view class="add-options-mask" wx:if="{{showAddOptions}}" bindtap="hideAddOptions">
+    <view class="add-options-container" catchtap="preventBubble">
+      <view class="add-options-title">选择任务类型</view>
+      
+      <view class="option-item" bindtap="selectOptionType" data-type="work">
+        <view class="option-icon work-icon">
+          <image class="option-image" src="/images/icons/work.svg" mode="aspectFit"></image>
+        </view>
+        <view class="option-content">
+          <view class="option-title">工作</view>
+          <view class="option-desc">记录工作相关的任务提醒</view>
+        </view>
+      </view>
+      
+      <view class="option-item" bindtap="selectOptionType" data-type="study">
+        <view class="option-icon study-icon">
+          <image class="option-image" src="/images/icons/study.svg" mode="aspectFit"></image>
+        </view>
+        <view class="option-content">
+          <view class="option-title">学习</view>
+          <view class="option-desc">记录学习相关的任务提醒</view>
+        </view>
+      </view>
+      
+      <view class="option-item" bindtap="selectOptionType" data-type="life">
+        <view class="option-icon life-icon">
+          <image class="option-image" src="/images/icons/life.svg" mode="aspectFit"></image>
+        </view>
+        <view class="option-content">
+          <view class="option-title">生活</view>
+          <view class="option-desc">记录生活相关的任务提醒</view>
+        </view>
+      </view>
+      
+      <view class="close-btn" bindtap="hideAddOptions">
+        <text class="close-icon">×</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,115 @@
+<!--pages/accounting/accounting.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="back-button" bindtap="handleBackClick">
+      <view class="arrow-left"></view>
+    </view>
+    <view class="title">记账</view>
+    <view class="add-button" bindtap="handleAddExpense">
+      <view class="plus-icon">+</view>
+    </view>
+  </view>
+  
+  <view class="content">
+    <!-- 总支出区域 -->
+    <view class="summary-card">
+      <view class="summary-title">本月支出</view>
+      <view class="summary-amount">
+        <text class="amount-symbol">¥</text>
+        <text class="amount-value">{{totalExpense}}</text>
+      </view>
+      
+      <view class="pet-message">
+        <image class="pet-avatar" src="/images/0.1.png" mode="aspectFill"></image>
+        <view class="message-box">
+          <view class="message-title">石小石说：</view>
+          <view class="message-content">主人，这个月花费有点多哦！</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 支出列表 -->
+    <view class="expense-list-container">
+      <view class="expense-list-header">最近支出</view>
+      
+      <view class="expense-list">
+        <block wx:for="{{expenses}}" wx:key="id">
+          <view class="expense-item" bindtap="handleExpenseClick" data-id="{{item.id}}" bindlongpress="showDeleteConfirm" data-id="{{item.id}}">
+            <view class="expense-icon-container" style="background-color: {{item.iconColor}}10;">
+              <!-- 咖啡图标 -->
+              <view wx:if="{{item.icon === 'coffee'}}" class="icon-svg" style="color: {{item.iconColor}};">
+                <view class="icon-coffee"></view>
+              </view>
+              
+              <!-- 购物袋图标 -->
+              <view wx:elif="{{item.icon === 'shopping-bag'}}" class="icon-svg" style="color: {{item.iconColor}};">
+                <view class="icon-shopping"></view>
+              </view>
+              
+              <!-- 房屋图标 -->
+              <view wx:elif="{{item.icon === 'home'}}" class="icon-svg" style="color: {{item.iconColor}};">
+                <view class="icon-home"></view>
+              </view>
+            </view>
+            <view class="expense-details">
+              <view class="expense-top-row">
+                <text class="expense-category">{{item.category}}</text>
+                <text class="expense-amount">¥{{item.amount}}</text>
+              </view>
+              <view class="expense-bottom-row">
+                <text class="expense-description">{{item.description}}</text>
+                <text class="expense-date">{{item.date}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    
+    <!-- 添加按钮 -->
+    <view class="add-expense-btn" bindtap="showAddOptions">
+      <text class="add-icon">+</text>
+    </view>
+  </view>
+  
+  <!-- 添加选项弹出层 -->
+  <view class="add-options-mask" wx:if="{{showAddOptions}}" bindtap="hideAddOptions">
+    <view class="add-options-container" catchtap="preventBubble">
+      <view class="add-options-title">选择支出类型</view>
+      
+      <view class="option-item" bindtap="selectExpenseType" data-type="daily">
+        <view class="option-icon daily-icon">
+          <view class="icon-coffee"></view>
+        </view>
+        <view class="option-content">
+          <view class="option-title">日常消费</view>
+          <view class="option-desc">记录餐饮、零食等日常开销</view>
+        </view>
+      </view>
+      
+      <view class="option-item" bindtap="selectExpenseType" data-type="shopping">
+        <view class="option-icon shopping-icon">
+          <view class="icon-shopping"></view>
+        </view>
+        <view class="option-content">
+          <view class="option-title">购物消费</view>
+          <view class="option-desc">记录购物、日用品等支出</view>
+        </view>
+      </view>
+      
+      <view class="option-item" bindtap="selectExpenseType" data-type="housing">
+        <view class="option-icon housing-icon">
+          <view class="icon-home"></view>
+        </view>
+        <view class="option-content">
+          <view class="option-title">住房支出</view>
+          <view class="option-desc">记录房租、水电等固定支出</view>
+        </view>
+      </view>
+      
+      <view class="close-btn" bindtap="hideAddOptions">
+        <text class="close-icon">×</text>
+      </view>
+    </view>
+  </view>
+</view>

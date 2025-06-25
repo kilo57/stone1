@@ -1,0 +1,369 @@
+/* reminder.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFEB3B;
+  padding: 20rpx;
+  padding-top: 80rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.back-button:active {
+  background-color: #E6D430;
+}
+
+.arrow-left {
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid black;
+  border-left: 4rpx solid black;
+  transform: rotate(-45deg);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.add-button {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.add-button:active {
+  background-color: #E6D430;
+}
+
+.plus-icon {
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+}
+
+.content {
+  flex: 1;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible; /* 修改为visible，让内部元素的滚动条生效 */
+}
+
+/* 提醒列表卡片样式 */
+.reminder-card {
+  background-color: white;
+  border-radius: 32rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 30rpx;
+  max-height: 70vh; /* 设置最大高度，超出时显示滚动条 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  width: 100%; /* 确保宽度占满容器 */
+  -webkit-overflow-scrolling: touch; /* 使iOS设备上的滚动更加流畅 */
+}
+
+.reminder-item {
+  padding: 32rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #f0f0f0;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.reminder-item:last-child {
+  border-bottom: none;
+}
+
+.reminder-item.completed {
+  opacity: 0.5;
+}
+
+.reminder-item:active {
+  background-color: rgba(0, 0, 0, 0.05); /* 长按时的背景色变化 */
+}
+
+.checkbox-container {
+  margin-right: 24rpx;
+}
+
+/* 自定义checkbox样式 */
+.checkbox-container checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 4rpx;
+  border: 2rpx solid #f0b90b;
+}
+
+.checkbox-container checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background-color: #f0b90b;
+}
+
+.reminder-details {
+  flex: 1;
+}
+
+.reminder-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.reminder-time {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.date-info, .time-info {
+  display: flex;
+  align-items: center;
+  margin-right: 24rpx;
+  color: #999;
+}
+
+.icon-image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+
+.bell-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.reminder-type-icon {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 32rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 小石头提示框样式 */
+.pet-message-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.pet-message {
+  background-color: white;
+  border-radius: 32rpx;
+  padding: 24rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 90%;
+}
+
+.pet-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pet-avatar image {
+  width: 200%;
+  height: 200%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.message-box {
+  flex: 1;
+}
+
+.message-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 4rpx;
+}
+
+.message-content {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 添加按钮样式 */
+.add-reminder-btn {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #FFEB3B;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx auto;
+  box-shadow: 0 6rpx 12rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.add-icon {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 90rpx;
+}
+
+/* 添加选项弹出层样式 */
+.add-options-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.add-options-container {
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  padding: 40rpx 30rpx;
+  position: relative;
+}
+
+.add-options-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.add-options-title::before,
+.add-options-title::after {
+  content: "";
+  display: block;
+  width: 120rpx;
+  height: 2rpx;
+  background-color: #ddd;
+  position: absolute;
+  top: 50%;
+}
+
+.add-options-title::before {
+  left: 100rpx;
+}
+
+.add-options-title::after {
+  right: 100rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  background-color: #FFF9C4;
+  border-radius: 100rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.option-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.work-icon {
+  background-color: #FFD54F;
+}
+
+.study-icon {
+  background-color: #81C784;
+}
+
+.life-icon {
+  background-color: #64B5F6;
+}
+
+.option-image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.option-desc {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.close-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx auto 0;
+}
+
+.close-icon {
+  font-size: 48rpx;
+  color: #999;
+  line-height: 70rpx;
+} 

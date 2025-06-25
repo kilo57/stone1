@@ -1,0 +1,252 @@
+/* chat.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFEB3B;
+  padding: 20rpx;
+  padding-top: 80rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.back-button {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.back-button:active {
+  background-color: #E6D430;
+}
+
+.arrow-left {
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid black;
+  border-left: 4rpx solid black;
+  transform: rotate(-45deg);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.placeholder {
+  width: 70rpx;
+}
+
+/* 聊天列表 */
+.chat-list {
+  flex: 1;
+  padding: 0 20rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-list-padding {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+/* 消息包装器 */
+.message-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 10rpx;
+}
+
+/* 消息项 */
+.message-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+
+/* 发送的消息(右侧) */
+.message-item.sent {
+  justify-content: flex-end;
+}
+
+/* 接收的消息(左侧) */
+.message-item.received {
+  justify-content: flex-start;
+}
+
+/* 头像样式 */
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 16rpx;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-avatar-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-avatar-container image {
+  min-width: 200rpx;
+  min-height: 200rpx;
+  transform: scale(2);
+}
+
+.ai-avatar-image {
+  transform-origin: center;
+  transform: scale(2.5);
+}
+
+.avatar image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 用户头像样式 */
+.user-avatar {
+  background-color: #e0f7d8;
+}
+
+.user-avatar-placeholder {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #9EEA6A;
+  position: relative;
+}
+
+.user-avatar-placeholder::after {
+  content: "";
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #e0f7d8;
+  top: 20rpx;
+  left: 20rpx;
+}
+
+/* 消息内容 */
+.message-content {
+  max-width: 60%;
+  border-radius: 20rpx;
+  padding: 16rpx 24rpx;
+  font-size: 32rpx;
+  position: relative;
+  word-wrap: break-word;
+  word-break: break-all;
+  box-sizing: border-box;
+  min-width: 80rpx;
+}
+
+.message-text {
+  line-height: 1.4;
+  word-break: break-word;
+  width: 100%;
+  display: inline-block;
+}
+
+/* 接收的消息气泡 */
+.message-content.received {
+  background-color: #ffffff;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 4rpx;
+  margin-right: 20rpx;
+}
+
+/* 发送的消息气泡 */
+.message-content.sent {
+  background-color: #9EEA6A;
+  text-align: left;
+  border-top-right-radius: 4rpx;
+  margin-left: 20rpx;
+}
+
+/* 消息时间 */
+.message-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+  text-align: right;
+  align-self: flex-end;
+  display: block;
+}
+
+/* 输入区域 */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background-color: #f9f9f9;
+  border-top: 2rpx solid #e0e0e0;
+  position: relative;
+  z-index: 10;
+}
+
+.input-box {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 36rpx;
+  padding: 0 24rpx;
+  margin-right: 20rpx;
+  border: 2rpx solid #e0e0e0;
+}
+
+.message-input {
+  width: 100%;
+  height: 80rpx;
+  font-size: 30rpx;
+}
+
+.send-button {
+  width: 120rpx;
+  height: 80rpx;
+  background-color: #FFEB3B;
+  color: #333;
+  border-radius: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: 500;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.send-button:active {
+  background-color: #E6D430;
+  transform: scale(0.98);
+}
+
+.safe-area-bottom {
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+} 

@@ -1,0 +1,75 @@
+<!--pages/accounting/edit/edit.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="back-button" bindtap="handleBackClick">
+      <view class="arrow-left"></view>
+    </view>
+    <view class="title">{{isEdit ? '编辑支出' : '新增支出'}}</view>
+    <view class="placeholder"></view>
+  </view>
+  
+  <view class="content">
+    <view class="form-card">
+      <!-- 支出类型 -->
+      <view class="form-item">
+        <view class="form-label">类型</view>
+        <view class="type-selector">
+          <view class="expense-icon-container" style="background-color: {{iconColor}}10;">
+            <!-- 咖啡图标 -->
+            <view wx:if="{{expenseType === 'daily'}}" class="icon-svg" style="color: {{iconColor}};">
+              <view class="icon-coffee"></view>
+            </view>
+            
+            <!-- 购物袋图标 -->
+            <view wx:elif="{{expenseType === 'shopping'}}" class="icon-svg" style="color: {{iconColor}};">
+              <view class="icon-shopping"></view>
+            </view>
+            
+            <!-- 房屋图标 -->
+            <view wx:elif="{{expenseType === 'housing'}}" class="icon-svg" style="color: {{iconColor}};">
+              <view class="icon-home"></view>
+            </view>
+          </view>
+          <text>{{expenseTypeText}}</text>
+        </view>
+      </view>
+      
+      <!-- 支出金额 -->
+      <view class="form-item">
+        <view class="form-label">金额</view>
+        <view class="amount-input-container">
+          <text class="amount-symbol">¥</text>
+          <input class="amount-input" type="digit" placeholder="请输入金额" value="{{amount}}" bindinput="handleAmountInput" />
+        </view>
+      </view>
+      
+      <!-- 支出类别 -->
+      <view class="form-item">
+        <view class="form-label">类别</view>
+        <input class="form-input" placeholder="请输入类别" value="{{category}}" bindinput="handleCategoryInput" maxlength="10" />
+      </view>
+      
+      <!-- 支出描述 -->
+      <view class="form-item">
+        <view class="form-label">描述</view>
+        <input class="form-input" placeholder="请输入描述" value="{{description}}" bindinput="handleDescriptionInput" maxlength="20" />
+      </view>
+      
+      <!-- 支出日期 -->
+      <view class="form-item">
+        <view class="form-label">日期</view>
+        <picker mode="date" value="{{date}}" bindchange="handleDateChange">
+          <view class="picker-view">
+            <text>{{dateText}}</text>
+            <view class="arrow-right"></view>
+          </view>
+        </picker>
+      </view>
+      
+      <!-- 保存按钮 -->
+      <view class="form-save-button" bindtap="handleSaveClick">
+        <text>保存支出</text>
+      </view>
+    </view>
+  </view>
+</view> 

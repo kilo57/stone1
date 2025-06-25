@@ -1,0 +1,61 @@
+<!--pages/chat/chat.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="back-button" bindtap="handleBackClick">
+      <view class="arrow-left"></view>
+    </view>
+    <view class="title">聊天</view>
+    <view class="placeholder"></view>
+  </view>
+  
+  <scroll-view 
+    class="chat-list" 
+    scroll-y="{{true}}" 
+    scroll-into-view="{{toView}}"
+    scroll-with-animation="{{true}}"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+    bounces="{{true}}"
+  >
+    <view class="chat-list-padding">
+      <view wx:for="{{messages}}" wx:key="id" class="message-wrapper">
+        <view class="message-item {{item.type}}" id="msg-{{index}}">
+          <block wx:if="{{item.type === 'received'}}">
+            <view class="avatar">
+              <image class="ai-avatar-image" src="/images/0.1.png" mode="aspectFit"></image>
+            </view>
+            <view class="message-content {{item.type}}">
+              <view class="message-text">{{item.content}}</view>
+              <view class="message-time">{{item.time}}</view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="message-content {{item.type}}">
+              <view class="message-text">{{item.content}}</view>
+              <view class="message-time">{{item.time}}</view>
+            </view>
+            <view class="avatar user-avatar">
+              <view class="user-avatar-placeholder"></view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="input-area">
+    <view class="input-box">
+      <input 
+        class="message-input" 
+        value="{{inputValue}}" 
+        bindinput="handleInput" 
+        placeholder="请输入消息..." 
+        confirm-type="send"
+        bindconfirm="sendMessage"
+        cursor-spacing="20"
+        adjust-position="{{true}}"
+      />
+    </view>
+    <view class="send-button" bindtap="sendMessage">发送</view>
+  </view>
+</view>
